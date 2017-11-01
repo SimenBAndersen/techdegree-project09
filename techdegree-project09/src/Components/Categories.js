@@ -1,14 +1,14 @@
 import React from 'react';
 import Category from './Category.js'
 
-const Categories = () => {
+const Categories = (props) => {
 
   return (
     <div className="main-nav">
       <ul>
-        <Category title="cats"/>
-        <Category title="dogs"/>
-        <Category title="computers"/>
+        <Category onClick={props.onClick} title="cats"/>
+        <Category onClick={props.onClick} title="dogs"/>
+        <Category onClick={props.onClick} title="computers"/>
       </ul>
     </div>
   );

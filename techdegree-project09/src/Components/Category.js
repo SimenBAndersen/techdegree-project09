@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Category = (props) => {
+class Category extends Component {
 
-  return (
-    <li><a href='#'>{props.title}</a></li>
-  );
+  handleClick = e => {
+    e.preventDefault();
+    this.props.onClick(this.props.title);
+  }
+
+  render() {
+    return (
+      <li><a href='' onClick={this.handleClick}>{this.props.title}</a></li>
+    );
+  }
 }
 
 export default Category;
