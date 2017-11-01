@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from './Image.js';
-import NotFound from './NotFound.js'
+import NoResults from './NoResults.js'
 
 const Results = (props) => {
 
@@ -15,7 +15,7 @@ const Results = (props) => {
         <Image url={`https://farm${result[i].farm}.staticflickr.com/${result[i].server}/${result[i].id}_${result[i].secret}.jpg`} key={result[i].id}/>
       );
     } else {
-      images = <NotFound />
+      images = <NoResults />
     }
 
   }

@@ -1,14 +1,11 @@
 import React from 'react';
 
 const NotFound = () => {
-
-  return (
-    <div className="not-found">
-      <h3>No Results Found</h3>
-      <p>Your search did not return any results. Please try again.</p>
+  return(
+    <div>
+      <h2>Page not found</h2>
     </div>
   );
-
 }
 
 export default NotFound;
