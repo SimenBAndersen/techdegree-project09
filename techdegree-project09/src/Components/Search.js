@@ -2,15 +2,21 @@ import React, {Component} from 'react';
 
 class Search extends Component {
 
+  // State to keep track of the search input and header to show
   state = {
     searchText: '',
     header: ''
   }
 
+  // Collects the search input
   onSearchChange = e => {
     this.setState({ searchText: e.target.value });
   }
 
+  // - Prevents hard refresh of page
+  // - Search for photos
+  // - Updates the header to show
+  // - Resets the search field
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSearch(this.query.value);

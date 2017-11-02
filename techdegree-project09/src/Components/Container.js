@@ -1,8 +1,11 @@
+// Modules, config and styles
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import '../index.css';
 import config from '../config.js';
 import axios from 'axios';
+
+// Components
 import PhotoContainer from './PhotoContainer.js';
 import NavMenu from './NavMenu.js';
 import Search from './Search.js';
@@ -19,16 +22,22 @@ class Container extends Component {
     };
   }
 
+  // When component first mounts: search for photos
   componentDidMount() {
     this.searchPhotos();
   }
 
+  // - Uses the axios module to access Flickr photos
+  // - Uses the flickr.photos.search method and provides it with a key and tag
+  // - Defualt value: sunsets
   searchPhotos = (tag = "sunsets") => {
     this.setState({
       isLoading: true
     });
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=${config.key}&tags=${tag}&nojsoncallback=1`)
       .then(response => {
+
+        // Updates state with the list of photos
         this.setState({
           photos: response.data,
           isLoading: false
