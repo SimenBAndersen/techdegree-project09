@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+// Components
+import PhotoContainer from './PhotoContainer.js';
+
 class Search extends Component {
 
   // State to keep track of the search input and header to show
@@ -19,7 +22,7 @@ class Search extends Component {
   // - Resets the search field
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.query.value);
+    // this.props.onSearch(this.query.value);
     this.setState({ header: this.state.searchText});
     e.currentTarget.reset();
   }
@@ -37,6 +40,11 @@ class Search extends Component {
             </svg>
           </button>
         </form>
+        {
+          (this.state.header !== '')
+          ? <PhotoContainer title={this.state.header} />
+          : <p></p>
+        }
       </div>
     );
   }
